@@ -74,6 +74,10 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.Op = Op;
 
+db.book = require('./book')(sequelize, DataTypes);
+db.member = require('./member')(sequelize, DataTypes);
+db.borrow = require('./borrow')(sequelize, DataTypes);
+
 
 db.rawQuery = rawQuery;
 module.exports = db;
