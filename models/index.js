@@ -79,5 +79,17 @@ db.member = require('./member')(sequelize, DataTypes);
 db.borrow = require('./borrow')(sequelize, DataTypes);
 
 
+db.book.hasMany(db.borrow, { as: 'borrow', foreignKey: 'brw_bok_code', sourceKey: 'bok_code' });
+db.borrow.belongsTo(db.book, { as: 'book', foreignKey: 'brw_bok_code', targetKey: 'bok_code' });
+
+
+
+db.member.hasMany(db.borrow, { as: 'borrow', foreignKey: 'brw_mbr_code', sourceKey: 'mbr_code' });
+db.borrow.belongsTo(db.member, { as: 'member', foreignKey: 'brw_mbr_code', targetKey: 'mbr_code' });
+
+
+
+
+
 db.rawQuery = rawQuery;
 module.exports = db;
