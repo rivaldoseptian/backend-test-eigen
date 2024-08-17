@@ -22,19 +22,21 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use('/api', router);
 app.use(errorHandlerMiddleware);
 
-(async () => {
-    try {
+module.exports = app;
 
-        const DB_VERSION = await DBVersionControl.getDBVersion();
-        if (APP_DB_VERSION > DB_VERSION) {
-            await DBVersionControl.migrate(DB_VERSION)
-        }
+// (async () => {
+//     try {
+
+//         const DB_VERSION = await DBVersionControl.getDBVersion();
+//         if (APP_DB_VERSION > DB_VERSION) {
+//             await DBVersionControl.migrate(DB_VERSION)
+//         }
         
-    } catch (error) {
-        throw error;
-    }
+//     } catch (error) {
+//         throw error;
+//     }
 
-    app.listen(config.port, () => {
-        console.info(`App running on port ${config.port}`);
-    });
-})();
+//     app.listen(config.port, () => {
+//         console.info(`App running on port ${config.port}`);
+//     });
+// })();

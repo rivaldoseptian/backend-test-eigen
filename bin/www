@@ -1,0 +1,22 @@
+const config = require('../config');
+const DBVersionControl = require('../migrations');
+const APP_DB_VERSION = require('../migrations/app-db-version');
+const app = require("../app");
+
+
+(async () => {
+    try {
+
+        const DB_VERSION = await DBVersionControl.getDBVersion();
+        if (APP_DB_VERSION > DB_VERSION) {
+            await DBVersionControl.migrate(DB_VERSION)
+        }
+        
+    } catch (error) {
+        throw error;
+    }
+
+    app.listen(config.port, () => {
+        console.info(`App running on port ${config.port}`);
+    });
+})();
