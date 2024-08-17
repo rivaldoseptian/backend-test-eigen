@@ -37,9 +37,17 @@ module.exports = (error, req, res, next) => {
         status = 400;
         message = "borrow date required";
         break;
+      case "return date required":
+        status = 400;
+        message = "borrow date required";
+        break;
       case "Out of stock":
         status = 400;
         message = "The book is out of stock";
+        break;
+      case "Members not borrow the book":
+        status = 400;
+        message = "Members not borrow the book";
         break;
       default:
         message = "Internal Server Error";

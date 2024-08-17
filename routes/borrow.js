@@ -12,4 +12,12 @@ router
     );
 
 
+    router
+    .route(`${baseroute}`)
+    .put(
+        borrowCtrl.returnBook
+    );
+
+
+
 module.exports = router;
