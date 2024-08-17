@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Documentation"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000/api"
+        }
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Get books list",
+                "description": "Get books list from database",
+                "parameters": [
+                   ],
+                "responses": {
+                    "200": {
+                        "description": "Success get data",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "success": {
+                                        "description": "Example get data",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/members": {
+            "get": {
+                "tags": [
+                    "Members"
+                ],
+                "summary": "Get members list",
+                "description": "Get members list from database",
+                "parameters": [
+                   ],
+                "responses": {
+                    "200": {
+                        "description": "Success get data",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "success": {
+                                        "description": "Example get data",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/borrow": {
+            "post": {
+                "tags": [
+                    "Borrow book"
+                ],
+                "summary": "borrow book",
+                "description": "Create borrow to database",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "brw_bok_code": {
+                                        "type": "string"
+                                    },
+                                    "brw_mbr_code": {
+                                        "type": "string"
+                                    },
+                                    "brw_borrowdate": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "example1": {
+                                    "description": "Example body",
+                                    "value": {
+                                        "brw_bok_code": "HOB-83",
+                                        "brw_mbr_code": "M001",
+                                        "brw_borrowdate": "2024-08-17"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success create data",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "success": {
+                                        "description": "Success create data",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Borrow book"
+                ],
+                "summary": "Return book",
+                "description": "Create Return book to database",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "brw_bok_code": {
+                                        "type": "string"
+                                    },
+                                    "brw_mbr_code": {
+                                        "type": "string"
+                                    },
+                                    "brw_borrowdate": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "example1": {
+                                    "description": "Example body",
+                                    "value": {
+                                        "brw_bok_code": "HOB-83",
+                                        "brw_mbr_code": "M001",
+                                        "brw_returndate": "2024-08-30"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success create data",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "success": {
+                                        "description": "Success create data",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+        }
+    }
+}
