@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         mbr_code: {
             type: DataTypes.CHAR(4),
             allowNull: false,
+            primaryKey: true,
         },
         mbr_name: {
             type: DataTypes.STRING(100),
