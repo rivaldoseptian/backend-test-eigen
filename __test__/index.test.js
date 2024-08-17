@@ -1,6 +1,5 @@
 const request = require('supertest');
 const app = require("../app");
-// const app = `http://192.168.24.41/5009/api/`
 
 
 
