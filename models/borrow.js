@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         brw_returndate: {
             type: DataTypes.DATEONLY,
-            allowNull: false,
         },
     }, {
         modelName: 'borrow',

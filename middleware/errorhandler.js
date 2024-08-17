@@ -9,22 +9,37 @@ module.exports = (error, req, res, next) => {
         status = 400;
         message = error.errors[0].message;
         break;
-      case "Unauthenticated":
-      case "JsonWebTokenError":
-        status = 401;
-        message = "Unauthenticated";
-        break;
-      case "Invalid Email/Password":
+      case "Book Not found":
         status = 404;
-        message = "Invalid Email/Password";
+        message = "Book Not Found";
         break;
-      case "Not Found":
+      case "Member Not found":
         status = 404;
-        message = "Menu Not Found";
+        message = "Member Not found";
         break;
-      case "Forbiden":
-        status = 403;
-        message = "You are not authorized";
+      case "penalized":
+        status = 400;
+        message = "Can't borrow books if you're under penalized";
+        break;
+      case "can not borrow":
+        status = 400;
+        message = "Member can only borrow 2 books";
+        break;
+      case "book required":
+        status = 400;
+        message = "book required";
+        break;
+      case "member required":
+        status = 400;
+        message = "member required";
+        break;
+      case "borrow date required":
+        status = 400;
+        message = "borrow date required";
+        break;
+      case "Out of stock":
+        status = 400;
+        message = "The book is out of stock";
         break;
       default:
         message = "Internal Server Error";
